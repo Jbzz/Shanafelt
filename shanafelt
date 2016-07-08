@@ -1,0 +1,54 @@
+#hail black satan
+
+import discord
+from discord.ext import commands
+import random
+from config import token
+
+client = discord.Client()
+
+bot = commands.Bot(command_prefix='!')
+
+@bot.event
+async def on_ready():
+    print('im logged in')
+
+@bot.command()
+async def eve():
+    """plugs my shitty favorite mmo, eve"""
+    await bot.say('Play EVE ONLINE The ONLY SPACESHPI THEMED MMORPG http://secure.eveonline.com/trial/?invc=48e030c5-5b45-4537-9d5f-f8727ef3ed4d&action=buddy')
+
+##again, still fucked due to my stupidity
+@bot.command()
+async def jaketime():
+    """jake is an unreliable friend :("""
+    await bot.say('Jaketime is once every nine months at 2:45 AM for three hours.')
+    await client.send_file('meimei-and-chill', 'jaketime.jpeg')
+
+##this is also fucked
+@bot.command()
+async def rip():
+    """SA emote"""
+    await bot.say('Ya, RIP')
+    await client.send_file('meimei-and-chill', 'Shenafelt\img\sa_rip.png')
+
+##these are fucked and i don't know why
+@bot.command()
+async def smith():
+    """SA emote"""
+    await client.send_file(discord.Object('187166980791336961'), 'sa_smith.png')
+
+@bot.command()
+async def piss():
+    """pisssss"""
+    await bot.say('pisssssssssssssss')
+
+@bot.command()
+async def jordanstory():
+    """100% True stories about Jordan Judson from Tacoma, WA"""
+    file = open('jordanstories.txt', 'r')
+    stories = file.read().splitlines()
+    story = random.choice(stories)
+    await bot.say(story)
+
+bot.run(token.oauth_token)
